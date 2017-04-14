@@ -75,6 +75,7 @@ namespace Change_File
                     {
                         readable = false;
                         editNextFile = false;
+                        editString = true;
                     }
                 }
             }
