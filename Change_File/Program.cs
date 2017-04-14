@@ -26,6 +26,7 @@ namespace Change_File
             //Soll eine Datei bearbeitet Werden?
             while (editFile)
             {
+                editNextFile = true;
                 //Prüfung, ob die angegebene Datei existiert.
                 while (!readable)
                 {
@@ -69,6 +70,10 @@ namespace Change_File
                     if (editChoice == "n")
                     {
                         editFile = false;
+                        editNextFile = false;
+                    }else if(editChoice == "y")
+                    {
+                        readable = false;
                         editNextFile = false;
                     }
                 }
