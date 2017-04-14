@@ -12,12 +12,16 @@ namespace Change_File
         static void Main(string[] args)
         {
             //Initialisierung der Variablen
-            string path;
+            string path = "";
             string editChoice = "";
+            string search;
+            string replace;
+
             bool readable = false;
             bool editFile = true;
             bool editString = true;
             bool editNextFile = true;
+
 
             //Soll eine Datei bearbeitet Werden?
             while (editFile)
@@ -33,10 +37,34 @@ namespace Change_File
                     }
                 }
 
+                //Datei zum Beschreiben öffnen
+                while (editString)
+                {
+                    //Definierung des Textes, der ersetzt werden soll.
+                    Console.WriteLine("Den Suchbegriff eingeben.");
+                    search = Console.ReadLine();
+                    Console.WriteLine("Änderung eingeben.");
+                    replace = Console.ReadLine();
+
+                    //Überschreibung des Textes
+                    string text = File.ReadAllText(path);
+                    text = text.Replace(search, replace);
+                    File.WriteAllText(path, text);
+
+
+
+                    Console.WriteLine("Die Datei weiter bearbeiten?y(es), n(o)");
+                    editChoice = Console.ReadLine();
+                    if(editChoice == "n")
+                    {
+                        editString = false;
+                    }
+                }
+
                 //Abfrage, ob eine weitere Datei bearbeitet werden soll.
                 while (editNextFile)
                 {
-                    Console.WriteLine("Weitere Datei bearbeiten? y(es),n(o)");
+                    Console.WriteLine("Weitere Dateien bearbeiten? y(es),n(o)");
                     editChoice = Console.ReadLine();
                     if (editChoice == "n")
                     {
