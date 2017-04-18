@@ -21,7 +21,7 @@ namespace Change_File
             bool editFile = true;
             bool editString = true;
             bool editNextFile = true;
-
+            //Zum Kopieren in die Console einfach Rechtsklick auf den Rahmen der Konsole dann Bearbeiten -> Einfügen
 
             //Soll eine Datei bearbeitet Werden?
             while (editFile)
